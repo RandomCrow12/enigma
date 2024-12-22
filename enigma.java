@@ -56,7 +56,8 @@ public class enigma {
 
     public static boolean threeWorker(){
         // this method does NOT work yet lol
-        int[] usedTwice = new int[19];
+        //int[] usedTwice = new int[19];
+        
         int[] r1 = new int[3];
         int[] r2 = new int[3];
         int[] r3 = new int[3];
@@ -70,33 +71,32 @@ public class enigma {
             for (int[] item : threes) {
             copyThrees.add(item);
             }
-
+            
             for(int ii = 0; ii < copyThrees.size(); ii++){
                 if (ii < 0) ii = 0;
-                System.out.println(ii);
+                //System.out.println(copyThrees.size());
 
-                if (copyThrees.get(ii)[0] == threes.get(i)[0]) {copyThrees.remove(ii); ii--; continue;};
-                if (copyThrees.get(ii)[0] == threes.get(i)[1]) {copyThrees.remove(ii); ii--; continue;};
-                if (copyThrees.get(ii)[1] == threes.get(i)[1]) {copyThrees.remove(ii); ii--; continue;};
-                if (copyThrees.get(ii)[2] == threes.get(i)[1]) {copyThrees.remove(ii); ii--; continue;};
+                if (copyThrees.get(ii)[0] == threes.get(i)[0]) {copyThrees.remove(ii); ii--; continue;}
+                else if (copyThrees.get(ii)[0] == threes.get(i)[1]) {copyThrees.remove(ii); ii--; continue;}
+                else if (copyThrees.get(ii)[1] == threes.get(i)[1]) {copyThrees.remove(ii); ii--; continue;}
+                else if (copyThrees.get(ii)[2] == threes.get(i)[1]) {copyThrees.remove(ii); ii--; continue;}
             }
+
+            
 
             for(int k = 0; k < copyThrees.size(); k++){
                 // make another copy of each little version going down the list making sure everything complies
+
                 ArrayList<int[]> cT2 = new ArrayList<>();
                 for (int[] item : copyThrees) {
                 cT2.add(item);
                 }
                 for(int ii = 0; ii < cT2.size(); ii++){
-                    int rem = 0;
                     if (ii < 0) ii = 0;
-
-                    if (cT2.get(ii)[0] != copyThrees.get(k)[2]) {cT2.remove(ii); rem++;};
-                    if (cT2.get(ii)[0] == copyThrees.get(k)[1]) {cT2.remove(ii); rem++;};
-                    if (cT2.get(ii)[1] == copyThrees.get(k)[1]) {cT2.remove(ii); rem++;};
-                    if (cT2.get(ii)[2] == copyThrees.get(k)[1]) {cT2.remove(ii); rem++;};
-
-                    ii = ii - rem;
+                    if (cT2.get(ii)[0] != copyThrees.get(k)[2]) {cT2.remove(ii); i--; continue;};
+                    if (cT2.get(ii)[0] == copyThrees.get(k)[1]) {cT2.remove(ii); i--; continue;};
+                    if (cT2.get(ii)[1] == copyThrees.get(k)[1]) {cT2.remove(ii); i--; continue;};
+                    if (cT2.get(ii)[2] == copyThrees.get(k)[1]) {cT2.remove(ii); i--; continue;};
                 }
 
                 for(int x = 0; x < cT2.size(); x++){
@@ -106,15 +106,12 @@ public class enigma {
                     cT3.add(item);
                     }
                 for(int ii = 0; ii < cT3.size(); ii++){
-                    int rem = 0;
                     if (ii < 0) ii = 0;
 
-                    if (cT3.get(ii)[0] != cT2.get(x)[2]) {cT3.remove(ii); rem++;};
-                    if (cT3.get(ii)[0] == cT2.get(x)[1]) {cT3.remove(ii); rem++;};
-                    if (cT3.get(ii)[1] == cT2.get(x)[1]) {cT3.remove(ii); rem++;};
-                    if (cT3.get(ii)[2] == cT2.get(x)[1]) {cT3.remove(ii); rem++;};
-
-                    ii = ii - rem;
+                    if (cT3.get(ii)[0] != cT2.get(x)[2]) {cT3.remove(ii); ii--; continue;};
+                    if (cT3.get(ii)[0] == cT2.get(x)[1]) {cT3.remove(ii); ii--; continue;};
+                    if (cT3.get(ii)[1] == cT2.get(x)[1]) {cT3.remove(ii); ii--; continue;};
+                    if (cT3.get(ii)[2] == cT2.get(x)[1]) {cT3.remove(ii); ii--; continue;};
                 }
 
                     for(int z = 0; z < cT3.size(); z++){
@@ -124,15 +121,13 @@ public class enigma {
                     cT4.add(item);
                     }
                 for(int ii = 0; ii < cT4.size(); ii++){
-                    int rem = 0;
                     if (ii < 0) ii = 0;
 
-                    if (cT4.get(ii)[0] != cT3.get(z)[2]) {cT4.remove(ii); rem++;};
-                    if (cT4.get(ii)[0] == cT3.get(z)[1]) {cT4.remove(ii); rem++;};
-                    if (cT4.get(ii)[1] == cT3.get(z)[1]) {cT4.remove(ii); rem++;};
-                    if (cT4.get(ii)[2] == cT3.get(z)[1]) {cT4.remove(ii); rem++;};
+                    if (cT4.get(ii)[0] != cT3.get(z)[2]) {cT4.remove(ii); ii--; continue;};
+                    if (cT4.get(ii)[0] == cT3.get(z)[1]) {cT4.remove(ii); ii--; continue;};
+                    if (cT4.get(ii)[1] == cT3.get(z)[1]) {cT4.remove(ii); ii--; continue;};
+                    if (cT4.get(ii)[2] == cT3.get(z)[1]) {cT4.remove(ii); ii--; continue;};
 
-                    ii = ii - rem;
                 }
 
                         for(int v = 0; v < cT4.size(); v++){
@@ -142,15 +137,13 @@ public class enigma {
                     cT5.add(item);
                     }
                 for(int ii = 0; ii < cT5.size(); ii++){
-                    int rem = 0;
                     if (ii < 0) ii = 0;
 
-                    if (cT5.get(ii)[0] != cT4.get(v)[2]) {cT5.remove(ii); rem++;};
-                    if (cT5.get(ii)[0] == cT4.get(v)[1]) {cT5.remove(ii); rem++;};
-                    if (cT5.get(ii)[1] == cT4.get(v)[1]) {cT5.remove(ii); rem++;};
-                    if (cT5.get(ii)[2] == cT4.get(v)[1]) {cT5.remove(ii); rem++;};
+                    if (cT5.get(ii)[0] != cT4.get(v)[2]) {cT5.remove(ii); ii--; continue;};
+                    if (cT5.get(ii)[0] == cT4.get(v)[1]) {cT5.remove(ii); ii--; continue;};
+                    if (cT5.get(ii)[1] == cT4.get(v)[1]) {cT5.remove(ii); ii--; continue;};
+                    if (cT5.get(ii)[2] == cT4.get(v)[1]) {cT5.remove(ii); ii--; continue;};
 
-                    ii = ii - rem;
                 }
 
                             for(int j = 0;  j< cT5.size(); j++){
